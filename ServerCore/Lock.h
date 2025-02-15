@@ -1,10 +1,5 @@
 #pragma once
 
-// [WWWWWWWW] [WWWWWWWW] : Write Lock을 걸은 ThreadID를 기입
-// [RRRRRRRR] [RRRRRRRR] : Read Lock을 걸었을 때 몇번이나 걸었는지 횟수
-// [WWWWWWWW] [WWWWWWWW] [RRRRRRRR] [RRRRRRRR] => 32비트 플래그
-// W : Write Flag (상호배타적, Thread ID)
-// R : Read Flag (Shared Lock Count)
 
 class Lock
 {
@@ -28,7 +23,7 @@ private:
 	uint16 _writeCount = 0;
 };
 
-// RAII(Resource Acquisition IS Initialization) 패턴
+
 class ReadLockGuard
 {
 public:

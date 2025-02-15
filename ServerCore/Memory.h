@@ -5,8 +5,8 @@ class MemoryPool;
 
 class Memory
 {
-	enum			//  32                             8                     8
-	{				 // 0 ~ 1024 ... 32단위 / 1024 ~ 2048 ... 128단위 / 2048 ~ 4096 ... 256 단위
+	enum
+	{				
 		POOL_COUNT = (1024 /32) + (1024 / 128) + (2048 / 256),
 		MAX_ALLOC_SIZE = 4096
 	};
@@ -19,9 +19,8 @@ public:
 	void  Release(void* ptr);
 
 private:
-	vector<MemoryPool*> _pools; // 48개의 메모리 풀
+	vector<MemoryPool*> _pools; 
 
-	// 메모리 풀을 빠르게 탐색하기 위한 Table
 	MemoryPool* _poolTable[MAX_ALLOC_SIZE + 1];
 };
 

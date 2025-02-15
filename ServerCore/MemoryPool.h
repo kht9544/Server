@@ -6,7 +6,7 @@ struct MemoryHeader
 
 	static void* AttachHeader(MemoryHeader* header, int32 size)
 	{
-		new(header)MemoryHeader(size); // placement new
+		new(header)MemoryHeader(size); 
 		return reinterpret_cast<void*>(++header);
 	}
 
@@ -17,7 +17,6 @@ struct MemoryHeader
 	}
 
 	int32 _allocSize;
-	// TODO : header에 필요한 추가정보
 };
 
 class MemoryPool

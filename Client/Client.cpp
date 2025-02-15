@@ -1,10 +1,4 @@
 ﻿#include "pch.h"
-
-// Socket 만들기
-// - ipv6
-// - port
-// - protocol
-
 #include <WinSock2.h>
 #include <MSWSock.h>
 #include <WS2tcpip.h>
@@ -51,9 +45,7 @@ int main()
 
 		char recvBuffer[1000];
 
-		// UDP
-		// 1:1 연결이 아니라, 1: 다 연결 가능
-		// listener가 없고 SeverSocket으로 나한테 정보를 보낸 것을 Recv한다.
+
 
 		int32 recvLen = ::recvfrom(clientSocket, recvBuffer, sizeof(recvBuffer), 0, (SOCKADDR*)&recvAddr, &addrLen);
 		if (recvLen <= 0)

@@ -12,7 +12,7 @@ public:
 	{
 		int32 refCount = --_refCount;
 
-		if (refCount == 0) //
+		if (refCount == 0) 
 		{
 			delete this;
 		}
@@ -35,13 +35,12 @@ public:
 	TSharedPtr(const TSharedPtr& other) { Set(other._ptr); }
 	TSharedPtr(TSharedPtr&& rv) { _ptr = rv._ptr; rv._ptr = nullptr; }
 
-	// 상속관계에서의 복사생성자
 	template<typename U>
 	TSharedPtr(const TSharedPtr<U>& child) { Set(static_cast<T*>(child._ptr)); }
 
 	~TSharedPtr() { Release(); }
 
-public: // 연산자 오버로딩
+public:
 	TSharedPtr& operator=(const TSharedPtr& other)
 	{
 		if (_ptr != other._ptr)
@@ -53,7 +52,6 @@ public: // 연산자 오버로딩
 		return *this;
 	}
 
-	// 오른값 참조를 매개변수로 받는 대입연산자
 	TSharedPtr& operator=(TSharedPtr&& rv)
 	{
 		Release();
@@ -92,7 +90,6 @@ private:
 	}
 
 private:
-	// T... 제일 선조는 RefCountable이 와야한다.
 	T* _ptr = nullptr;
 };
 

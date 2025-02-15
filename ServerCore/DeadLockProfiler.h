@@ -13,14 +13,12 @@ private:
 	unordered_map<const char*, int32>	_nameToId;
 	unordered_map<int32, const char*>	_idToName;
 	stack<int32>						_lockStack;
-	map<int32, set<int32>>				_lockHistory; // adjacent 역할
+	map<int32, set<int32>>				_lockHistory;
 
 	Mutex _lock;
-
-	// -- DFS에 필요한 것들
-	vector<int32>	_discoveredOrder; // 노드가 발견된 순서를 기입하는 배열
+	vector<int32>	_discoveredOrder; 
 	int32			_discoveredCount = 0;
-	vector<bool>	_finished; // 현재(here) DFS가 끝났는지 여부
+	vector<bool>	_finished; 
 	vector<int32>	_parent;
 };
 

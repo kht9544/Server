@@ -33,9 +33,6 @@ int main()
 		return 0;
 	}
 
-	// UDP
-	// ServerSocket.
-	// - 여러명의 socket들이 serverSocket한테 직접 정보를 전달
 	while (true)
 	{
 		SOCKADDR_IN clientAddr;
@@ -46,9 +43,6 @@ int main()
 
 		char recvBuffer[1000];
 
-		// UDP
-		// 1:1 연결이 아니라, 1: 다 연결 가능
-		// listener가 없고 SeverSocket으로 나한테 정보를 보낸 것을 Recv한다.
 		int32 recvLen = ::recvfrom(serverSocket, recvBuffer, sizeof(recvBuffer), 0, (SOCKADDR*)&clientAddr, &addrLen);
 		if (recvLen <= 0)
 		{
